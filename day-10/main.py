@@ -6,17 +6,15 @@ with open('day-10/input.txt', 'r') as file:
 
 def part_1(puzzle_input):
     puzzle_input = puzzle_input.copy()
-    start = 0
+    puzzle_input.sort()
     differences = defaultdict(int)
-    device_joltage = max(puzzle_input) + 3
+    current_adapter = 0
 
-    while start != device_joltage - 3:
-        adapter, adapter_diff = min([(i, abs(start - i))
-                                     for i in puzzle_input], key=lambda x: x[1])
+    for adapter in puzzle_input:
+        adapter_diff = adapter - current_adapter
 
         if adapter_diff <= 3:
-            start = adapter
-            puzzle_input.remove(adapter)
+            current_adapter = adapter
             differences[adapter_diff] += 1
 
     differences[3] += 1
