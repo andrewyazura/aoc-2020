@@ -19,8 +19,8 @@ Advent of Code 2020 solutions written in Python.
 | 9   | Encoding Error      |
 | 10  | Adapter Array       |
 | 11  | Seating System      |
-| 12  | ❌                  |
-| 13  | ❌                  |
+| 12  | Rain Risk           |
+| 13  | Shuttle Search      |
 | 14  | ❌                  |
 | 15  | ❌                  |
 | 16  | ❌                  |
