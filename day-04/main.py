@@ -1,3 +1,4 @@
+import re
 from string import ascii_lowercase, digits
 
 
@@ -54,17 +55,12 @@ class Passport:
 puzzle_input_raw = []
 
 with open('day-04/input.txt', 'r') as file:
-    puzzle_input_raw = ' '.join([i.strip() if i != '\n' else i
-                                 for i in file.readlines()])
+    puzzle_input_raw = [re.split('[\n ]', i.strip())
+                        for i in file.read().split('\n\n')]
 
-puzzle_input_raw = [[j.split(':') for j in i.split(' ') if j != '']
-                    for i in puzzle_input_raw.split('\n')]
-
-puzzle_input = []
-for passport in puzzle_input_raw:
-    puzzle_input.append({})
-    for pair in passport:
-        puzzle_input[-1][pair[0]] = pair[1]
+puzzle_input = [{k: v for (k, v) in
+                 [field.split(':') for field in passport]}
+                for passport in puzzle_input_raw]
 
 
 def part_1(puzzle_input):
