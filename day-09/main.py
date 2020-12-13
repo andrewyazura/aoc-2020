@@ -1,5 +1,3 @@
-from os import posix_fadvise
-import numpy
 import itertools
 
 with open('day-09/input.txt', 'r') as file:
