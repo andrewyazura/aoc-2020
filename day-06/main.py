@@ -1,16 +1,7 @@
 from string import ascii_lowercase
 
 with open('day-06/input.txt', 'r') as file:
-    puzzle_input_raw = [i.strip() if i != '\n' else i
-                        for i in file.readlines()]
-
-puzzle_input = [[]]
-for entry in puzzle_input_raw:
-    if entry == '\n':
-        puzzle_input.append([])
-        continue
-
-    puzzle_input[-1].append(entry.strip())
+    puzzle_input = [i.splitlines() for i in file.read().split('\n\n')]
 
 
 def char_in_nested_list(char, nested_list):
