@@ -31,18 +31,21 @@ class LinkedList:
         return False
 
     def cost(self):
+        return self._cost() - 1
+
+    def _cost(self):
         cost = 1
 
         for child in self.next:
-            cost += self.next[child] * child.cost()
+            cost += self.next[child] * child._cost()
 
-        return cost - 1
+        return cost
 
     def __repr__(self):
         return f'<LinkedListNode:{self.name}>'
 
 
-with open('day-7/input.txt', 'r') as file:
+with open('day-07/input.txt', 'r') as file:
     puzzle_input_raw = [i.strip() for i in file.readlines()]
 
 puzzle_input = {}

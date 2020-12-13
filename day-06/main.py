@@ -1,6 +1,6 @@
 from string import ascii_lowercase
 
-with open('day-6/input.txt', 'r') as file:
+with open('day-06/input.txt', 'r') as file:
     puzzle_input_raw = [i.strip() if i != '\n' else i
                         for i in file.readlines()]
 

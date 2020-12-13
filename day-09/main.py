@@ -2,7 +2,7 @@ from os import posix_fadvise
 import numpy
 import itertools
 
-with open('day-9/input.txt', 'r') as file:
+with open('day-09/input.txt', 'r') as file:
     puzzle_input = [int(i.strip()) for i in file.readlines()]
 
 

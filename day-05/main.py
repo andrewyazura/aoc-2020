@@ -2,7 +2,7 @@ import itertools
 
 puzzle_input = []
 
-with open('day-5/input.txt', 'r') as file:
+with open('day-05/input.txt', 'r') as file:
     puzzle_input = [i.strip() for i in file.readlines()]
 
 

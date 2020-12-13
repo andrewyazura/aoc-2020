@@ -2,7 +2,7 @@ import re
 
 puzzle_input = []
 
-with open('day-2/input.txt', 'r') as file:
+with open('day-02/input.txt', 'r') as file:
     puzzle_input = [i.strip() for i in file.readlines()]
 
 puzzle_template = '(\d+)-(\d+) (\w): (\w+)'

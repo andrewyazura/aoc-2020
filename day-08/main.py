@@ -51,7 +51,7 @@ def find_strings_in_list(l, substring):
     return pointers
 
 
-with open('day-8/input.txt', 'r') as file:
+with open('day-08/input.txt', 'r') as file:
     puzzle_input = [i.strip() for i in file.readlines()]
 
 

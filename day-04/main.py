@@ -53,7 +53,7 @@ class Passport:
 
 puzzle_input_raw = []
 
-with open('day-4/input.txt', 'r') as file:
+with open('day-04/input.txt', 'r') as file:
     puzzle_input_raw = ' '.join([i.strip() if i != '\n' else i
                                  for i in file.readlines()])
 

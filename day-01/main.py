@@ -4,7 +4,7 @@ import numpy
 
 puzzle_input = []
 
-with open('day-1/input.txt', 'r') as file:
+with open('day-01/input.txt', 'r') as file:
     puzzle_input = [int(i.strip()) for i in file.readlines()]
 
 
