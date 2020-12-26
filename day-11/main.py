@@ -5,9 +5,13 @@ with open('day-11/input.txt', 'r') as file:
 
 
 class Grid:
-    def __init__(self, init_2d_array, threshold):
+    def __init__(self, init_2d_array, threshold, directions):
         self.grid = init_2d_array
         self.threshold = threshold
+
+        self.count_algorithm = self.count_occupied_adjacent
+        if directions:
+            self.count_algorithm = self.count_occupied_directions
 
         self.occupied = '#'
         self.empty = 'L'
@@ -40,7 +44,7 @@ class Grid:
 
         for y in range(len(self.grid)):
             for x in range(len(self.grid[y])):
-                occupied_around = self.count_occupied_adjacent(
+                occupied_around = self.count_algorithm(
                     compare_grid, x, y)
 
                 if compare_grid[y][x] == self.empty \
@@ -60,6 +64,21 @@ class Grid:
                 for pair in self.adjacent
                 if self.coords_exist(x + pair[0], y + pair[1])]
 
+    def count_occupied_directions(self, grid, x, y):
+        result = 0
+        for pair in self.adjacent:
+            new_x, new_y = x + pair[0], y + pair[1]
+
+            while self.coords_exist(new_x, new_y) \
+                    and grid[new_y][new_x] == self.floor:
+                new_x, new_y = new_x + pair[0], new_y + pair[1]
+
+            if self.coords_exist(new_x, new_y) \
+                    and grid[new_y][new_x] == self.occupied:
+                result += 1
+
+        return result
+
     def coords_exist(self, x, y):
         return 0 <= y < len(self.grid) and 0 <= x < len(self.grid[y])
 
@@ -71,8 +90,16 @@ class Grid:
 
 
 def part_1(puzzle_input):
-    grid = Grid(puzzle_input, 4)
+    start_grid = copy.deepcopy(puzzle_input)
+    grid = Grid(start_grid, 4, directions=False)
+    return grid.process_until_static()
+
+
+def part_2(puzzle_input):
+    start_grid = copy.deepcopy(puzzle_input)
+    grid = Grid(start_grid, 5, directions=True)
     return grid.process_until_static()
 
 
 print(part_1(puzzle_input))
+print(part_2(puzzle_input))
