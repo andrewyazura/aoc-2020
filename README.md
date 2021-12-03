@@ -23,7 +23,7 @@ Advent of Code 2020 solutions written in Python.
 | 13  | Shuttle Search          |
 | 14  | Docking Data            |
 | 15  | Rambunctious Recitation |
-| 16  | ❌                      |
+| 16  | Ticket Translation      |
 | 17  | ❌                      |
 | 18  | ❌                      |
 | 19  | ❌                      |
